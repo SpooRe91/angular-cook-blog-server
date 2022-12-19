@@ -4,6 +4,7 @@ const { auth } = require('./middlewares/authMiddleware');
 const { errorHandler } = require('./middlewares/errorHandlerMiddleware');
 const cors = require('./middlewares/corsMiddleware');
 const app = express();
+
 const currPort = process.env.PORT || 3030;
 
 dbService.connecter();
