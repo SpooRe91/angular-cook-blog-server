@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.set('strictQuery', false)
-const nutrientShema = new mongoose.Schema({}, { strict: false });
+
+const nutrientShema = new mongoose.Schema({});
 const Nutrient = mongoose.model('Nutrient', nutrientShema);
 
 exports.Nutrient = Nutrient;

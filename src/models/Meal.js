@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const URL_PATERN = /^https?:\/\/(.+)/;
 
-mongoose.set('strictQuery', false);
+
 const mealSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -52,7 +52,7 @@ const mealSchema = new mongoose.Schema({
     },
 
 },
-    { strict: false }, { timestamps: true });
+    { timestamps: true });
 
 const Meal = mongoose.model('Meal', mealSchema);
 

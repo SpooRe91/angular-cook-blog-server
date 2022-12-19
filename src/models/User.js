@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.set('strictQuery', false)
+
 const EMAIL_PATTERN = /^[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+$/;
 const PASS_PATTERN = /[a-zA-Z0-9]/;
 
@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
     ref: "Meal"
   },
 
-}, { timestamps: true }, { strict: true });
+}, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
