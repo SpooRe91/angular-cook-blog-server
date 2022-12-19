@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const dbService = require('./config/mongoseConfig');
 const { auth } = require('./middlewares/authMiddleware');
@@ -5,7 +6,7 @@ const { errorHandler } = require('./middlewares/errorHandlerMiddleware');
 const cors = require('./middlewares/corsMiddleware');
 const app = express();
 
-const currPort = process.env.PORT || 3030;
+const currPort = process.env.PORT;
 
 dbService.connecter();
 require('./config/cookieParserConfig')(app);//cookie parser
