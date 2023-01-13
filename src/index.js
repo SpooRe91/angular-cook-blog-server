@@ -4,13 +4,11 @@ const dbService = require('./config/mongoseConfig');
 const { auth } = require('./middlewares/authMiddleware');
 const { errorHandler } = require('./middlewares/errorHandlerMiddleware');
 const cors = require('cors');
-const corsOrigin = require('./middlewares/corsMiddleware');
 const app = express();
 
 dbService.connecter();
 require('./config/cookieParserConfig')(app);//cookie parser
-app.use(cors({ origin: "https://angular-cook-blog.web.app", credentials: true, allowedHeaders: ["Access-Control-Allow-Credentials, Allow-Control-Access-Policy, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"] }));
-app.use(corsOrigin());
+app.use(cors({ origin: ['http://localhost:3000', "https://angular-cook-blog.web.app"], credentials: true }));
 app.use(auth);//auth middleware
 require('./config/expressConfig')(app);//express config
 app.use(errorHandler)//error handler
